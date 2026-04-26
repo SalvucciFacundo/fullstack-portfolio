@@ -6,8 +6,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME_BACKEND: ${{ github.repository }}-backend
-  IMAGE_NAME_FRONTEND: ${{ github.repository }}-frontend
 
 jobs:
   build-and-push:
@@ -32,6 +30,11 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lowercase image names
+        run: |
+          echo "IMAGE_NAME_BACKEND=$(echo ${{ github.repository }}-backend | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          echo "IMAGE_NAME_FRONTEND=$(echo ${{ github.repository }}-frontend | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Build and push Backend
         uses: docker/build-push-action@v5
