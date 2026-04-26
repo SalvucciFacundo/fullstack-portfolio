@@ -1,0 +1,135 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  padding: 1rem 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+
+  &-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 8px 16px -4px rgba(66, 182, 240, 0.3);
+  }
+
+  &-text {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    
+    span {
+      color: var(--primary);
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 2.5rem;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 2px;
+    }
+
+    &:hover {
+      color: var(--primary);
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hire-btn {
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ef4444;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+    transform: scale(1.05);
+  }
+
+  span {
+    font-size: 20px;
+  }
+}

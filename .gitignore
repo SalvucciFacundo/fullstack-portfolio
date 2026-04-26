@@ -1,0 +1,44 @@
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.history/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+
+# Backend (Go)
+backend/api
+backend/bin/
+backend/*.exe
+backend/*.test
+backend/*.prof
+backend/portfolio-backend
+portfolio-backend
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Frontend (Angular/Node)
+frontend/node_modules/
+frontend/dist/
+frontend/tmp/
+frontend/out-tsc/
+frontend/.angular/cache/
+frontend/*.log
+frontend/src/environments/environment.ts
+frontend/src/environments/environment.development.ts
+
+# Agent & SDD Metadata
+.atl/
+agent/
+.gemini/
+.agent/
+**/__screenshots__/
+**/coverage/
+
+# Misc
+*.bak
+*.tmp

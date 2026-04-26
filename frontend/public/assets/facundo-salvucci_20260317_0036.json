@@ -1,0 +1,381 @@
+{
+  "picture": {
+    "hidden": false,
+    "url": "https://rxresu.me/uploads/019cf99e-5aea-7496-89a5-e27772791b3c/pictures/1773714563954.webp",
+    "size": 80,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 100,
+    "borderColor": "rgba(0, 0, 0, 0.5)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0.5)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Facundo Salvucci",
+    "headline": "Full-Stack Developer & QA Specialist",
+    "email": "fds1288@gmail.com",
+    "phone": "02615730481",
+    "location": "Mendoza, Argentina (Remote)",
+    "website": {
+      "url": "",
+      "label": ""
+    },
+    "customFields": []
+  },
+  "summary": {
+    "title": "",
+    "columns": 1,
+    "hidden": false,
+    "content": "<p>Full-Stack Developer and QA Specialist with an Associate Degree in Computer Programming. I have over three years of experience working with TypeScript and Angular, focusing on building functional web applications and ensuring software quality through rigorous testing.&nbsp;</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019cf9cd-1496-768f-86c3-47bed9deb1f7",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "git-branch",
+          "network": "Github",
+          "username": "",
+          "website": {
+            "url": "https://github.com/SalvucciFacundo",
+            "label": ""
+          }
+        },
+        {
+          "id": "019cf9ce-2274-7312-b2b5-b54aa8b18a19",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "linkedin-logo",
+          "network": "Linkedin",
+          "username": "",
+          "website": {
+            "url": "https://www.linkedin.com/in/facundo-salvucci",
+            "label": ""
+          }
+        },
+        {
+          "id": "019cf9cf-e913-770e-8b7d-c4879fb52ffc",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "desktop-tower",
+          "network": "Porfolio",
+          "username": "",
+          "website": {
+            "url": "https://facundosalvucci.web.app/",
+            "label": ""
+          }
+        }
+      ]
+    },
+    "experience": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019cf9b7-5836-7346-a4f0-20282408bc04",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Freelance",
+          "position": "Full-Stack Developer",
+          "location": "",
+          "period": "2023- Present",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<ul><li><p>Designed and developed scalable web applications using Angular and TypeScript.</p></li><li><p>Integrated Firebase services for real-time database management, user authentication, and cloud hosting.</p></li><li><p>Engineered custom business solutions, including a specialized marketplace and inventory management systems for niche industries.</p></li><li><p>Implemented Responsive Web Design and optimized front-end performance to improve user retention and engagement.</p></li></ul><p></p>",
+          "roles": []
+        },
+        {
+          "id": "019cf9c1-2f89-744c-bccf-07267daa30b6",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Dubbz",
+          "position": "QA Tester",
+          "location": "",
+          "period": "2023- 2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<ul><li><p>Performed comprehensive manual and exploratory testing to identify, document, and track software bugs and regressions.</p></li><li><p>Collaborated with cross-functional development teams to ensure software quality and adherence to technical requirements in a remote environment.</p></li><li><p>Executed end-to-end testing protocols to validate system stability and user experience across multiple web platforms.</p></li></ul><p></p>",
+          "roles": []
+        },
+        {
+          "id": "019cf9c1-d451-73ab-ad26-7cd1afeae186",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Dubbz",
+          "position": "Customer Support Specialist",
+          "location": "",
+          "period": "2023- 2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "<ul><li><p>Documented technical procedures and user feedback to assist the development team in prioritizing feature updates and bug fixes.</p></li><li><p>Managed complex client inquiries and resolved service-level issues within a fast-paced, digital-first environment.</p></li></ul><p></p>",
+          "roles": []
+        }
+      ]
+    },
+    "education": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019cf9af-93bf-7478-8aff-4befa7baca45",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "Universidad Tecnológica Nacional (UTN)",
+          "degree": "Associate Degree in Computer Programming",
+          "area": "",
+          "grade": "",
+          "location": "",
+          "period": "",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019cf9af-fa0f-73ed-a039-068ebda3fd1d",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "Escuela Técnico Industrial Emilio Civit",
+          "degree": "Industrial Mechanical Technician (High School Diploma)",
+          "area": "",
+          "grade": "",
+          "location": "",
+          "period": "",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "projects": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "skills": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019cf9b0-41f7-707e-855d-75d4c114673b",
+          "hidden": false,
+          "icon": "angular-logo",
+          "name": "Angular",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019cf9b2-e81f-73c8-932e-fd25ab5431cc",
+          "hidden": false,
+          "icon": "file-ts",
+          "name": "TypeScript",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019cf9b4-0f66-72bf-b5b4-88e92d39d87d",
+          "hidden": false,
+          "icon": "file-js",
+          "name": "Javascript",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019cf9b4-efa6-7519-96ae-d208b3d4f8bb",
+          "hidden": false,
+          "icon": "fire",
+          "name": "Firebase",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019cf9b5-945e-729b-8716-d902f9be0407",
+          "hidden": false,
+          "icon": "code-block",
+          "name": "Java",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019cf9b6-462d-75c4-a866-322a58056b39",
+          "hidden": false,
+          "icon": "bug-beetle",
+          "name": "QA Manual",
+          "proficiency": "",
+          "level": 0,
+          "keywords": []
+        }
+      ]
+    },
+    "languages": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019cf9b6-b8b6-71cf-998d-3951e8dea548",
+          "hidden": false,
+          "language": "Spanish",
+          "fluency": "Native",
+          "level": 0
+        },
+        {
+          "id": "019cf9b6-ebf5-73da-95bc-304cfa7cb972",
+          "hidden": false,
+          "language": "English",
+          "fluency": "B1",
+          "level": 0
+        }
+      ]
+    },
+    "interests": {
+      "title": "",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    },
+    "awards": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "certifications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "publications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "volunteer": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "references": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    }
+  },
+  "customSections": [],
+  "metadata": {
+    "template": "ditgar",
+    "layout": {
+      "sidebarWidth": 35,
+      "pages": [
+        {
+          "fullWidth": false,
+          "main": [
+            "volunteer",
+            "references",
+            "certifications",
+            "projects",
+            "interests",
+            "awards",
+            "publications",
+            "experience",
+            "profiles"
+          ],
+          "sidebar": [
+            "summary",
+            "skills",
+            "languages",
+            "education"
+          ]
+        }
+      ]
+    },
+    "css": {
+      "enabled": false,
+      "value": ""
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 6,
+      "marginX": 14,
+      "marginY": 12,
+      "format": "a4",
+      "locale": "en-US",
+      "hideIcons": false
+    },
+    "design": {
+      "level": {
+        "icon": "star",
+        "type": "circle"
+      },
+      "colors": {
+        "primary": "rgba(0, 132, 209, 1)",
+        "text": "rgba(0, 0, 0, 1)",
+        "background": "rgba(255, 255, 255, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "Ubuntu",
+        "fontWeights": [
+          "400",
+          "700"
+        ],
+        "fontSize": 10,
+        "lineHeight": 1.5
+      },
+      "heading": {
+        "fontFamily": "Google Sans",
+        "fontWeights": [
+          "700"
+        ],
+        "fontSize": 14,
+        "lineHeight": 1.5
+      }
+    },
+    "notes": ""
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "facundosalvucci",
+    "public": "dist/portfolio/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

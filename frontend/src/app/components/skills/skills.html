@@ -1,0 +1,136 @@
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My Skills & Tools</h2>
+      @if (isAdmin()) {
+        <button class="btn-add-cms" (click)="openAddModal()">
+          <span class="material-symbols-outlined">add</span>
+          Add Skill
+        </button>
+      }
+    </div>
+
+    <div class="skills-grid">
+      <!-- Frontend -->
+      <div class="skill-category-card">
+        <h3>Frontend Development</h3>
+        <div class="skills-list">
+          @for (skill of getSkillsByCategory('frontend'); track skill.id) {
+            <div class="skill-item">
+              <i [class]="skill.iconClass"></i>
+              <span>{{ skill.name }}</span>
+              @if (isAdmin()) {
+                <div class="item-actions">
+                  <button (click)="openEditModal(skill)"><span class="material-symbols-outlined">edit</span></button>
+                  <button (click)="deleteSkill(skill.id!)"><span class="material-symbols-outlined">delete</span></button>
+                </div>
+              }
+            </div>
+          } @empty {
+            <p class="empty-msg">No skills found.</p>
+          }
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="skill-category-card">
+        <h3>Backend & Cloud</h3>
+        <div class="skills-list">
+          @for (skill of getSkillsByCategory('backend'); track skill.id) {
+            <div class="skill-item">
+              <i [class]="skill.iconClass"></i>
+              <span>{{ skill.name }}</span>
+              @if (isAdmin()) {
+                <div class="item-actions">
+                  <button (click)="openEditModal(skill)"><span class="material-symbols-outlined">edit</span></button>
+                  <button (click)="deleteSkill(skill.id!)"><span class="material-symbols-outlined">delete</span></button>
+                </div>
+              }
+            </div>
+          } @empty {
+            <p class="empty-msg">No skills found.</p>
+          }
+        </div>
+      </div>
+
+      <!-- QA -->
+      <div class="skill-category-card">
+        <h3>Quality Assurance</h3>
+        <div class="skills-list">
+          @for (skill of getSkillsByCategory('qa'); track skill.id) {
+            <div class="skill-item">
+              <i [class]="skill.iconClass"></i>
+              <span>{{ skill.name }}</span>
+              @if (isAdmin()) {
+                <div class="item-actions">
+                  <button (click)="openEditModal(skill)"><span class="material-symbols-outlined">edit</span></button>
+                  <button (click)="deleteSkill(skill.id!)"><span class="material-symbols-outlined">delete</span></button>
+                </div>
+              }
+            </div>
+          } @empty {
+            <p class="empty-msg">No skills found.</p>
+          }
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="skill-category-card">
+        <h3>Design & Productivity</h3>
+        <div class="skills-list">
+          @for (skill of getSkillsByCategory('tools'); track skill.id) {
+            <div class="skill-item">
+              <i [class]="skill.iconClass"></i>
+              <span>{{ skill.name }}</span>
+              @if (isAdmin()) {
+                <div class="item-actions">
+                  <button (click)="openEditModal(skill)"><span class="material-symbols-outlined">edit</span></button>
+                  <button (click)="deleteSkill(skill.id!)"><span class="material-symbols-outlined">delete</span></button>
+                </div>
+              }
+            </div>
+          } @empty {
+            <p class="empty-msg">No skills found.</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skill Modal -->
+<app-modal [isOpen]="isModalOpen()" [title]="editingSkill() ? 'Editar Habilidad' : 'Añadir Habilidad'" (close)="closeModal()">
+  <form [formGroup]="skillForm" (ngSubmit)="saveSkill()" class="admin-form">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="name" placeholder="Ej: Angular, Go, Selenium">
+    </div>
+
+    <div class="form-group">
+      <label>Icono (Clase de FontAwesome o DevIcon)</label>
+      <input type="text" formControlName="iconClass" placeholder="Ej: devicon-angularjs-plain">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Categoría</label>
+        <select formControlName="category">
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="qa">QA</option>
+          <option value="tools">Tools</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Orden de visualización</label>
+        <input type="number" formControlName="displayOrder">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="closeModal()">Cancelar</button>
+      <button type="submit" class="btn-submit" [disabled]="skillForm.invalid">Guardar</button>
+    </div>
+  </form>
+</app-modal>

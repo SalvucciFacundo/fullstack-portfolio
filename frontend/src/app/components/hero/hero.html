@@ -1,0 +1,109 @@
+@if (hero(); as data) {
+  <section class="hero-section">
+    <!-- Admin Edit Button -->
+    @if (isAdmin()) {
+      <button class="admin-edit-btn" (click)='openEditModal()'>
+        <span class="material-symbols-outlined">edit</span>
+        Editar Hero
+      </button>
+    }
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2 class="hero-subheadline">{{ data.subheadline }}</h2>
+        <h1 class="hero-headline">{{ data.headline }}</h1>
+        <p class="hero-biography">{{ data.biography }}</p>
+        
+        <div class="hero-actions">
+          <a [href]="data.resumeUrl" target="_blank" class="btn btn-primary">
+            <span class="material-symbols-outlined">download</span>
+            Get Resume
+          </a>
+          
+          <div class="social-links-large">
+            @for (link of socialLinks(); track link.id) {
+              <a [href]="link.url" 
+                 target="_blank" 
+                 [title]="link.platform"
+                 class="social-icon-btn">
+                <i [class]="link.iconName"></i>
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-container">
+        <div class="image-wrapper">
+          <img
+            [ngSrc]="data.profileImage"
+            alt="Profile image"
+            width="400"
+            height="400"
+            priority
+            class="profile-img"
+          />
+          <div class="image-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- Edit Hero Modal -->
+<app-modal [isOpen]="isModalOpen()" title="Editar Sección Hero" (close)="closeModal()">
+  <form [formGroup]="heroForm" (ngSubmit)="saveHero()" class="admin-form">
+    <div class="form-group">
+      <label>Subheadline (Título Pequeño)</label>
+      <input type="text" formControlName="subheadline" placeholder="Ej: I'm a Full-Stack Developer">
+    </div>
+
+    <div class="form-group">
+      <label>Headline (Título Grande)</label>
+      <input type="text" formControlName="headline">
+    </div>
+
+    <div class="form-group">
+      <label>Biografía</label>
+      <textarea formControlName="biography" rows="5"></textarea>
+    </div>
+
+    <!-- Social Links Management inside Hero Modal for simplicity -->
+    <div class="social-management">
+      <h3>Redes Sociales</h3>
+      @for (link of socialLinks(); track link.id) {
+        <div class="social-edit-row">
+          <label><i [class]="link.iconName"></i> {{ link.platform }}</label>
+          <input type="text" [(ngModel)]="link.url" [ngModelOptions]="{standalone: true}" (change)="updateSocial(link)">
+        </div>
+      }
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Foto de Perfil</label>
+        <div class="file-upload-preview">
+          @if (heroForm.value.profileImage) {
+            <img [src]="heroForm.value.profileImage" class="preview-thumb">
+          }
+          <input type="file" (change)="onFileSelected($event, 'image')" accept="image/*">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Currículum (PDF)</label>
+        <input type="file" (change)="onFileSelected($event, 'resume')" accept=".pdf">
+        @if (heroForm.value.resumeUrl) {
+          <small class="file-path">{{ heroForm.value.resumeUrl }}</small>
+        }
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="closeModal()">Cancelar</button>
+      <button type="submit" class="btn-submit" [disabled]="heroForm.invalid || isUploading()">
+        {{ isUploading() ? 'Subiendo...' : 'Guardar Cambios' }}
+      </button>
+    </div>
+  </form>
+</app-modal>

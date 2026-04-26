@@ -1,0 +1,85 @@
+<section class="experience-section" id="experience">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Professional Experience</h2>
+      @if (isAdmin()) {
+        <button class="btn-add-cms" (click)="openAddModal()">
+          <span class="material-symbols-outlined">add</span>
+          Add Experience
+        </button>
+      }
+    </div>
+
+    <div class="experience-timeline">
+      @for (exp of experiences(); track exp.id) {
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="experience-card">
+            <div class="card-header">
+              <div>
+                <h3 class="role">{{ exp.role }}</h3>
+                <h4 class="company">{{ exp.company }}</h4>
+              </div>
+              <div class="period">
+                {{ exp.startDate | date:'MMM yyyy' }} - {{ exp.isCurrent ? 'Present' : (exp.endDate | date:'MMM yyyy') }}
+              </div>
+            </div>
+            <p class="description">{{ exp.description }}</p>
+            
+            @if (isAdmin()) {
+              <div class="item-actions">
+                <button (click)="openEditModal(exp)"><span class="material-symbols-outlined">edit</span></button>
+                <button (click)="deleteExperience(exp.id!)"><span class="material-symbols-outlined">delete</span></button>
+              </div>
+            }
+          </div>
+        </div>
+      } @empty {
+        <p class="empty-msg">No experience entries found.</p>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Experience Modal -->
+<app-modal [isOpen]="isModalOpen()" [title]="editingExperience() ? 'Editar Experiencia' : 'Añadir Experiencia'" (close)="closeModal()">
+  <form [formGroup]="experienceForm" (ngSubmit)="saveExperience()" class="admin-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Empresa</label>
+        <input type="text" formControlName="company">
+      </div>
+      <div class="form-group">
+        <label>Cargo / Rol</label>
+        <input type="text" formControlName="role">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Descripción</label>
+      <textarea formControlName="description" rows="4"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Fecha Inicio</label>
+        <input type="date" formControlName="startDate">
+      </div>
+      <div class="form-group">
+        <label>Fecha Fin</label>
+        <input type="date" formControlName="endDate" [disabled]="!!experienceForm.get('isCurrent')?.value">
+      </div>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="isCurrent"> Es mi trabajo actual
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="closeModal()">Cancelar</button>
+      <button type="submit" class="btn-submit" [disabled]="experienceForm.invalid">Guardar</button>
+    </div>
+  </form>
+</app-modal>

@@ -1,0 +1,79 @@
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <h2 class="subtitle">My Portfolio</h2>
+      <div class="title-with-admin">
+        <h3 class="title">Featured Projects</h3>
+        @if (isAdmin()) {
+          <button class="btn-admin-add" (click)="onAdd()">
+            <span class="material-symbols-outlined">add_circle</span>
+            New Project
+          </button>
+        }
+      </div>
+      <p class="header-desc">A collection of web applications, AI experiments, and specialized solutions.</p>
+    </div>
+
+    <div class="projects-slider-wrapper">
+      <button class="nav-btn prev" (click)="scroll('left')" aria-label="Previous project">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+
+      <div class="projects-slider" #slider>
+        @for (project of projects(); track project.id) {
+          <div class="project-card">
+            <div class="project-image">
+              <img [ngSrc]="project.image" [alt]="project.title" fill loading="lazy">
+              <div class="project-overlay">
+                <span class="category-tag">{{ project.category }}</span>
+                @if (project.statusLabel) {
+                  <span class="status-tag" [class.production]="project.statusLabel === 'Production'">
+                    {{ project.statusLabel }}
+                  </span>
+                }
+
+                @if (isAdmin()) {
+                  <div class="admin-actions-overlay">
+                    <button class="admin-btn edit" (click)="onEdit(project)">
+                      <span class="material-symbols-outlined">edit</span>
+                    </button>
+                    <button class="admin-btn delete" (click)="onDelete(project)">
+                      <span class="material-symbols-outlined">delete</span>
+                    </button>
+                  </div>
+                }
+              </div>
+            </div>
+            <div class="project-info">
+              <h4 class="project-title">{{ project.title }}</h4>
+              <p class="project-desc">{{ project.description }}</p>
+              <div class="tech-stack">
+                @for (tech of project.techStack; track tech) {
+                  <span class="tech-tag">{{ tech }}</span>
+                }
+              </div>
+              <div class="project-links">
+                @if (project.liveUrl) {
+                  <a [href]="project.liveUrl" target="_blank" class="link-btn primary">
+                    Live Demo
+                    <span class="material-symbols-outlined">open_in_new</span>
+                  </a>
+                }
+                @if (project.githubUrl) {
+                  <a [href]="project.githubUrl" target="_blank" class="link-btn secondary">
+                    View Code
+                    <span class="material-symbols-outlined">code</span>
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button class="nav-btn next" (click)="scroll('right')" aria-label="Next project">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</section>

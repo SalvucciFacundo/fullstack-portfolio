@@ -1,0 +1,64 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="icon-circle">
+        <span class="material-symbols-outlined">lock_open</span>
+      </div>
+      <h1>Admin Access</h1>
+      <p>Please enter your credentials to manage the portfolio</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined">mail</span>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email"
+            placeholder="admin@admin.com"
+          >
+        </div>
+        @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+          <div class="error-msg-small">Please enter a valid email</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined">key</span>
+          <input 
+            type="password" 
+            id="password" 
+            formControlName="password"
+            placeholder="••••••••"
+          >
+        </div>
+        @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+          <div class="error-msg-small">Password must be at least 6 characters</div>
+        }
+      </div>
+
+      @if (error()) {
+        <div class="error-msg">
+          <span class="material-symbols-outlined">error</span>
+          {{ error() }}
+        </div>
+      }
+
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid || loading()">
+        @if (loading()) {
+          <span class="loader"></span>
+        } @else {
+          Authenticate
+        }
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <a routerLink="/">Return to Portfolio</a>
+    </div>
+  </div>
+</div>

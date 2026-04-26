@@ -1,0 +1,70 @@
+<section class="education-section" id="education">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      @if (isAdmin()) {
+        <button class="btn-add-cms" (click)="openAddModal()">
+          <span class="material-symbols-outlined">add</span>
+          Add Education
+        </button>
+      }
+    </div>
+
+    <div class="education-grid">
+      @for (edu of education(); track edu.id) {
+        <div class="education-card">
+          <div class="card-icon">
+            <span class="material-symbols-outlined">school</span>
+          </div>
+          <div class="card-content">
+            <h3 class="degree">{{ edu.degree }}</h3>
+            <h4 class="institution">{{ edu.institution }}</h4>
+            <div class="period">
+              {{ edu.startDate | date:'yyyy' }} - {{ edu.endDate ? (edu.endDate | date:'yyyy') : 'Present' }}
+            </div>
+            
+            @if (isAdmin()) {
+              <div class="item-actions">
+                <button (click)="openEditModal(edu)"><span class="material-symbols-outlined">edit</span></button>
+                <button (click)="deleteEducation(edu.id!)"><span class="material-symbols-outlined">delete</span></button>
+              </div>
+            }
+          </div>
+        </div>
+      } @empty {
+        <p class="empty-msg">No education records found.</p>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Education Modal -->
+<app-modal [isOpen]="isModalOpen()" [title]="editingEducation() ? 'Editar Educación' : 'Añadir Educación'" (close)="closeModal()">
+  <form [formGroup]="educationForm" (ngSubmit)="saveEducation()" class="admin-form">
+    <div class="form-group">
+      <label>Institución</label>
+      <input type="text" formControlName="institution" placeholder="Ej: Universidad de Buenos Aires">
+    </div>
+
+    <div class="form-group">
+      <label>Título / Carrera</label>
+      <input type="text" formControlName="degree" placeholder="Ej: Ingeniero en Sistemas">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Fecha Inicio</label>
+        <input type="date" formControlName="startDate">
+      </div>
+      <div class="form-group">
+        <label>Fecha Fin</label>
+        <input type="date" formControlName="endDate">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="closeModal()">Cancelar</button>
+      <button type="submit" class="btn-submit" [disabled]="educationForm.invalid">Guardar</button>
+    </div>
+  </form>
+</app-modal>
