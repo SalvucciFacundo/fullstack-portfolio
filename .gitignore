@@ -28,8 +28,6 @@ frontend/tmp/
 frontend/out-tsc/
 frontend/.angular/cache/
 frontend/*.log
-frontend/src/environments/environment.ts
-frontend/src/environments/environment.development.ts
 
 # Agent & SDD Metadata
 .atl/
