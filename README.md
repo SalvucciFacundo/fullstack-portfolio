@@ -73,7 +73,7 @@ npm start
 ## 📂 Project Structure
 ```text
 .
-├── backend/            # Go Clean Architecture Backend
+├── backend/            # Go 1.24 (Clean Architecture)
 │   ├── cmd/            # Entry points (API & Seeder)
 │   ├── internal/       # Core business logic & Adapters
 │   └── migrations/     # Database schema versions
